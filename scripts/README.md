@@ -15,9 +15,18 @@ Upscayl - Ultramix balanced
 fish script
 
 ```bash
-for input in ./leftovers/sized/*.png
-    magick.exe $input -resize 2560x1440^ -set filename:f '%t' +adjoin './leftovers/down/%[filename:f].jpg'
+for input in ./in/*.png
+    convert $input -resize 2560x1440^ -set filename:f '%t' +adjoin './out/%[filename:f].jpg'
 end
+```
+
+bash script
+
+```bash
+for file in ./in/*.png
+do
+  convert $file -resize 3840x2160^ -set filename:f '%t' +adjoin './out/%[filename:f].jpg'
+done
 ```
 
 🥝
